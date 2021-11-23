@@ -3,7 +3,11 @@ function seed(a, b, c) {
 }
 
 function same([x, y], [j, k]) {
-  return [x, y] === [j, k]
+  return Array.isArray([x, y]) &&
+    Array.isArray([j, k]) &&
+    ([x, y]).length === ([j, k]).length &&
+    ([x, y]).every((val, index) => val === ([j, k])[index]);
+
 }
 
 // The game state to search for `cell` is passed as the `this` value of the function.
